@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework:
+        security: trace
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          oauth-client:
+#            client-id: client-id
+#            client-secret: client-secret
+#            authorization-grant-type: client_credentials
+#            scope: read,write
+#        provider:
+#          oauth-client:
+#            token-uri: http://localhost:9000/oauth2/token
