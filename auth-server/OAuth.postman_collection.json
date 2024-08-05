@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "358aa7b5-edf0-4912-bd13-edf66eff9397",
+		"name": "OAuth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Server - Gerar token com Authorization Code",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "webapp-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "webapp-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "default"
+						},
+						{
+							"key": "code",
+							"value": "n9QpU4MuQMBKV8Yhj1LDH0vDJyq0MTlNmYw_E20DknB5uLcTLyXPptKuIMkGWlGcqxbZsPGF3bdHID3FYBTWFHA8mHvEF91XSihgH-8ynynSBaU2NpDv7mgroaW24TTz",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "read write",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oidcdebugger.com/debug",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9000/oauth2/token",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Server - Gerar token com Client Credentials - Secret Basic Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "read write",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9000/oauth2/token",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Server - Instrospect",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client-id",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiNjQxZDg5NS0zZmY5LTQwYjAtODYwZC1mZTI5NmNhOGFiZDgiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkIjoid2ViYXBwLWlkIiwibmJmIjoxNzIyODc0NzcwLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiZXhwIjoxNzIyODc1MDcwLCJpYXQiOjE3MjI4NzQ3NzAsImp0aSI6IjdmNDc3YzYyLTJkZDktNGZjMS05N2JhLTVkM2NmZjA5ZDIwYSJ9.NFw_eP6q5xN7GIs36MwLnVY5PxCOZ5KQ2nY6XUIm7rZ7gVcVrSaKuygUJEOwt_QqS5NhyHVO87u4U-4V7jzKLtLyIarHaUYb2DSd1YiISyL30i4F853uCzoZFIzlBgRbxDfnRF4wBwOZYP9xZ9KFSn7KZxdvdzsJmGZfhnO91xdbJLSKR3wfq1aVjiyshPO2bIke_EzwOaV_cS3jo4GAVdbKmDxu_ax6SvQ79z_qC3tgSLdsMEGopgIuXlAwu30HVV5KlonVh_9S5KYTykRnJNfTPCdCS5dUYzRUEBbeiy4K8HsoiMfLoHaEG1q70SU843IJXWRd7kYXjDvArh63uQ",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9000/oauth2/introspect",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Server - Instrospect com OAuth2 do Postaman",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJraWQiOiJlMTQxYjEwMi1jYmUzLTQyZGEtODQyOS1mNGJiZWU3MjliZTgiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkIjoid2ViYXBwLWlkIiwibmJmIjoxNzIyODc5NDY1LCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiZXhwIjoxNzIyODc5NzY1LCJpYXQiOjE3MjI4Nzk0NjUsImp0aSI6ImZmZWQzNWRmLTdlZjQtNDFjYy1hODkxLTcxZDdkOWNiOTE5MCJ9.arDuZdv6LCkWe8PM7jrVN0UJczzorm5TizMHVqzuYwHyuakjKfQPJimjAZs8YmJuTezgm_2CfWjysuAGOfzzPq-gE5mFmRhbDzGccaS0d7l_mMz9YkR7Crnrfjq8KV-pOF_FG2K587MLXldqnOBAaJUbIlSTbjvOXnTObICCOLkRUS9r5KucM0e56LYmId45O_TmIpKC2Wov0Mqjhh0BXNOktt2aE0TCKHH0HP-cWfUvB_1x707odpNyAzcnGBPKOpCCPzZInAQJXaR_yGCbEgN7Ze3tzW09kueybK6EUn2NS4NqlJXCLW5zxuRC6tWxWO8EMs5DX-56IJEvg95h2A",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oauth.pstmn.io/v1/callback",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code_with_pkce",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9000/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:9000/oauth2/authorize",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "write read",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "webapp-secret",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "webapp-id",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "webapp-token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiNjQxZDg5NS0zZmY5LTQwYjAtODYwZC1mZTI5NmNhOGFiZDgiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiYXVkIjoid2ViYXBwLWlkIiwibmJmIjoxNzIyODc0NzcwLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiZXhwIjoxNzIyODc1MDcwLCJpYXQiOjE3MjI4NzQ3NzAsImp0aSI6IjdmNDc3YzYyLTJkZDktNGZjMS05N2JhLTVkM2NmZjA5ZDIwYSJ9.NFw_eP6q5xN7GIs36MwLnVY5PxCOZ5KQ2nY6XUIm7rZ7gVcVrSaKuygUJEOwt_QqS5NhyHVO87u4U-4V7jzKLtLyIarHaUYb2DSd1YiISyL30i4F853uCzoZFIzlBgRbxDfnRF4wBwOZYP9xZ9KFSn7KZxdvdzsJmGZfhnO91xdbJLSKR3wfq1aVjiyshPO2bIke_EzwOaV_cS3jo4GAVdbKmDxu_ax6SvQ79z_qC3tgSLdsMEGopgIuXlAwu30HVV5KlonVh_9S5KYTykRnJNfTPCdCS5dUYzRUEBbeiy4K8HsoiMfLoHaEG1q70SU843IJXWRd7kYXjDvArh63uQ",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9000/oauth2/introspect",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Server - JWKS (Get public key)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:9000/oauth2/jwks",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"jwks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client - Consumir com Client Credentials - Secret Basic",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "eyJraWQiOiJiZDBlYzhmYS1lOGM4LTQ5YWItOTQxNS0wMzFhMDY3ODNhYzAiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtaWQiLCJhdWQiOiJjbGllbnQtaWQiLCJuYmYiOjE3MjIzNDQ0MDAsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3MjIzNDQ3MDAsImlhdCI6MTcyMjM0NDQwMCwianRpIjoiNDZjMWYxZWMtZjQ2OS00MWE1LThkZDQtYjU0YmNjOTFhMTliIn0.kKSDdFfwYk0WYPgp56P72tcLWVsIZMgtymEnhq5R28ndWsd65AoArOluYeWKLrvQmQhDHF1gNdcgnHA-gejc9wTPzdXypWiHEyrEBPdy0aIqgPASZkdZa0mzTBtWGI_j2lN0tNMsdFYisEzp7kKUuTpJ-yLhzxQloQLNrBJna0u4IrrhpPpuzf_Nv_mDTUSAp-qK1cxMN13fSzyTdlGccG1zN_dlweSDG5VPaC37O8MXHkOZo8OzN4eeMTj6ksHQePad21K2DGh2bO90vHbRasPEzK2PlP6D3eqYEVq3pzQY9dkwV5ncAzO-YeZDpFrh6zAm8UP1q-6KIsUwPIVUqQ",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/test",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resource server",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI4MzVlZDM0MS02ZDlmLTQ0NzMtYmJjNC03Nzc1OTBlYThjYjMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQtaWQiLCJhdWQiOiJjbGllbnQtaWQiLCJuYmYiOjE3MjI0MzQzMzIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkwMDAiLCJleHAiOjE3MjI0MzQ2MzIsImlhdCI6MTcyMjQzNDMzMiwianRpIjoiYzBkMTEwYjYtZWIwMy00MTU5LWE5YmQtZGM2YTFhOThmNWIwIn0.p4TDu1GiZ6HAWBbsW_1tO7buPXCX6pOkZB3QDW9PZ3OoHyi6G2jzXAvBdsNEkkqgaqy3ccuuZY4Zp8gjvzbnZmSdW1c-TR049FMUhd1Ap-BabOs6V4Euejdz70dVv-WyB9yZeoLo94OEEyE1oRAwt5E2mWh6PsjQX5H6MOz4cVrTI9kewz4DEVsBRVtTqyEvAG4r_CS9re6EJU27RpztKEXHILvP5QPBFLc6_LR9Geg-P7FFgkTsmJotrCsO1H8LKX7tgbiJiVO3WIMCz5JUjqteVNIkHlVPeYsAgLw7MUYcAufID0IvAwQqHVI_lBz9kY3LiM6h7PSD_Q9l6SbHhw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "grant_type",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client-credentials",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8081",
+					"host": [
+						"localhost"
+					],
+					"port": "8081"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request Auth Code (Navegador)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/oauth2/authorize?response_type=code&client_id=webapp-id&state=abc&redirect_uri=https://oidcdebugger.com/debug&scope=read write",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "webapp-id"
+						},
+						{
+							"key": "state",
+							"value": "abc"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://oidcdebugger.com/debug"
+						},
+						{
+							"key": "scope",
+							"value": "read write"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

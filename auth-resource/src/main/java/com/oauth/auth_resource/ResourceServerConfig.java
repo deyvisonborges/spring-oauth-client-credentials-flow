@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtDecoders;
+//import org.springframework.security.oauth2.jwt.JwtDecoder;
+//import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -20,9 +20,10 @@ public class ResourceServerConfig {
                 .jwt(Customizer.withDefaults()));
         return http.build();
     }
-
-    @Bean
-    public JwtDecoder jwtDecoder() {
-        return JwtDecoders.fromIssuerLocation("http://localhost:9000"); // URL do Authorization Server
-    }
+//
+//    @Bean
+//    public JwtDecoder jwtDecoder() {
+    // Carrega a chave publica do auithorization server
+//        return JwtDecoders.fromIssuerLocation("http://localhost:9000"); // URL do Authorization Server
+//    }
 }
