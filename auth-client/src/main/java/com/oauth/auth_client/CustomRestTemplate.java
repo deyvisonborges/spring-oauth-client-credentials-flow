@@ -32,7 +32,6 @@
 //                        .build();
 //                OAuth2AuthorizedClient authorizedClient = authorizedClientServiceAndManager.authorize(authorizeRequest);
 //                final var token = Objects.requireNonNull(authorizedClient).getAccessToken().getTokenValue();
-//                System.out.println(token);
 //                request.getHeaders().put(AUTHORIZATION, Collections.singletonList(BEARER.concat(token)));
 //                return execution.execute(request, body);
 //            });

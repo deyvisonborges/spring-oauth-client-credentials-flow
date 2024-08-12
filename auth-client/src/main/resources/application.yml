@@ -7,9 +7,12 @@ logging:
       springframework:
         security: trace
 
-#spring:
-#  security:
-#    oauth2:
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
 #      client:
 #        registration:
 #          oauth-client:
