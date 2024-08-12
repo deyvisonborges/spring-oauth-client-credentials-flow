@@ -61,21 +61,22 @@ public class ClientsStoreConfig {
         return new InMemoryRegisteredClientRepository(Arrays.asList(postmandClient, registeredClient));
     }
 
-    @Bean
-    OAuth2TokenCustomizer<JwtEncodingContext> jwtCustomizer(UserDetailsService userDetailsService) {
-        return (context -> {
-            Authentication authentication = context.getPrincipal();
-            User user = (User) authentication.getPrincipal();
-            UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
-
-            Set<String> authorities = new HashSet<>();
-            for (GrantedAuthority authority : userDetails.getAuthorities()) {
-                authorities.add(authority.getAuthority());
-            }
-
-            context.getClaims().claim("user_id", userDetails.getUsername());
-            context.getClaims().claim("user_fullname", userDetails.getUsername()); // Adjust this to fetch the full name
-            context.getClaims().claim("authorities", authorities);
-        });
-    }
+//    @Bean
+//    OAuth2TokenCustomizer<JwtEncodingContext> jwtCustomizer(UserDetailsService userDetailsService) {
+//        return (context -> {
+//            Authentication authentication = context.getPrincipal();
+//            System.out.println(authentication);
+//            User user = (User) authentication.getPrincipal();
+//            UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
+//
+//            Set<String> authorities = new HashSet<>();
+//            for (GrantedAuthority authority : userDetails.getAuthorities()) {
+//                authorities.add(authority.getAuthority());
+//            }
+//
+//            context.getClaims().claim("user_id", userDetails.getUsername());
+//            context.getClaims().claim("user_fullname", userDetails.getUsername()); // Adjust this to fetch the full name
+//            context.getClaims().claim("authorities", authorities);
+//        });
+//    }
 }
